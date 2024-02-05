@@ -23,7 +23,12 @@ import chromadb
 from chromadb.config import Settings
 
 persist_directory = 'persist_directory'
-client = chromadb.PersistentClient(path=persist_directory)
+# client = chromadb.PersistentClient(path=persist_directory
+client = chromadb.Client(
+    Settings(
+        persist_directory=persist_directory,
+    )
+)
 
 embeddings= OpenAIEmbeddings()
 
