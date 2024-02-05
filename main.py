@@ -17,18 +17,13 @@ import openai
 openai.api_key = os.environ['OPENAI_API_KEY']
 
 #必要なライブラリをインポート
-from langchain_openai import OpenAIEmbeddings
+from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 import chromadb
 from chromadb.config import Settings
 
 persist_directory = 'persist_directory'
-# client = chromadb.PersistentClient(path=persist_directory
-client = chromadb.Client(
-    Settings(
-        persist_directory=persist_directory,
-    )
-)
+client = chromadb.PersistentClient(path=persist_directory)
 
 embeddings= OpenAIEmbeddings()
 
