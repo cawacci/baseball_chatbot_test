@@ -1,9 +1,12 @@
+package__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 from pydantic import BaseModel
 import openai # OpenAI KYE Import
 from fastapi import FastAPI
 from langchain_openai import ChatOpenAI
 from langchain_openai import OpenAIEmbeddings
-# from langchain.vectorstores import Chroma
 from langchain_community.vectorstores import Chroma
 from langchain.chains import RetrievalQA
 
