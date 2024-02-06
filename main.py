@@ -37,5 +37,5 @@ qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=retrieve
 def get_answer(question: Question):
     # ここでモデルに質問を渡し、応答を取得するロジックを追加
     query = question.text
-    answer = qa.run(query)
+    answer = qa.invoke(query)
     return {"answer": answer}
